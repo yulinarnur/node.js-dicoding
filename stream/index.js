@@ -15,10 +15,10 @@ const readableStream = fs.createReadStream(inputPath, {
 // membuat writable stream ouput.txt
 const writableStream = fs.createWriteStream(outputPath);
 
-readableStream.on("data", (txtInput) => {
-  // Menampilkan txtInput ke konsol
-  console.log(txtInput);
-  writableStream.write(txtInput + "\n");
+readableStream.on("data", (chunk) => {
+  // Menampilkan chunk ke konsol
+  console.log(chunk);
+  writableStream.write(chunk + "\n");
 });
 
 readableStream.on("end", () => {
